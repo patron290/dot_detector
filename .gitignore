@@ -1,0 +1,86 @@
+# Rust
+/target
+**/*.rs.bk
+Cargo.lock
+
+# Vue
+/node_modules
+/dist
+.npmrc
+.env.local
+.env.*.local
+.DS_Store
+.nuxt
+.lock
+storybook-static
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+# Usually, PyInstaller builds should be placed in a separate directory.
+dist/
+build/
+*.spec
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# PyCharm
+.idea/
+*.swp
+*.swo
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Environment variables
+.env
+.env.*
+
+# Misc
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.seed
+*.db
+*.sql
+*.sqlite
+*.tar.gz
+*.zip
+*.gz
+*.rar
+*.exe
+*.dll
+*.so
+*.dylib
+*.test
+*.tmp
