@@ -3,6 +3,8 @@
 **/*.rs.bk
 Cargo.lock
 
+uploads
+
 # Vue
 /node_modules
 /dist
