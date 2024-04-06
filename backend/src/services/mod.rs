@@ -1,23 +1,16 @@
-extern crate ffmpeg_next as ffmpeg;
+use std::fs;
+use std::process::Command;
 
-use ffmpeg::{format, frate, media::Type, software::scaling::{self, flag::Flags}};
-use std::path::Path;
+pub fn save_video_frames_as_png(
+    video_path: &str,
+    output_path: &str,
+) -> Result<(), Box<dyn std::error::Error>> {
+    fs::create_dir_all(output_path)?;
 
-async fn save_video_frames_as_png(video_path: &Path) -> Result<(), ffmpeg::Error> {
-    ffmpeg::init()?;
+    let output_pattern = format!("{}/frame_%04d.png", output_path);
+    Command::new("ffmpeg")
+        .args(&["-i", video_path, "-vf", "fps=30", &output_pattern])
+        .output()?;
 
-    let mut ictx = format::input(&video_path)?;
-    let input_stram = ictx.streams().best(Type::Video).expect("No video stream found");
-    let video_stream_index = input_stram.index();
-
-    let mut decoder = input_stram.codec().decoder().video()?;
-    let mut scaler = scaling::Context::get(
-        decoder.format(),
-        decoder.width(),
-        decoder.height(),
-        ffmpeg::ffi::AVPixelFormat::AV_PIX_FMT_RGB24,
-        decoder.width(),
-        decoder.height(),
-        Flags::BILINEAR,
-    )?;
+    Ok(())
 }

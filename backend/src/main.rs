@@ -1,5 +1,6 @@
 use actix_web::{App, HttpServer};
 pub mod routes;
+pub mod services;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
